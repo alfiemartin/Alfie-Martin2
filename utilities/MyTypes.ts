@@ -16,3 +16,14 @@ export type ThemeType =
     | "projects"
     | "secret"
     | "about";
+
+export type ProjectThemeType =  
+| "normal_sec"
+| "neurify"
+| "Nice and Chill"
+| "RDM Technology"
+| "Tap Flash";    
+
+export interface ThemeProps {
+  theme: ThemeType;
+}

@@ -1,17 +1,18 @@
 import React from "react";
-import { ThemeType } from "../../utilities/MyTypes";
+import { ProjectThemeType, ThemeType } from "../../utilities/MyTypes";
 import ProjectsNormal from "./ProjectsNormal";
 import ProjectsProjects from "./ProjectsProjects";
 
 interface Props {
   theme: ThemeType;
+  setProjectsTheme: (theme: ProjectThemeType) => void;
 }
 
-const Projects = ({ theme }: Props) => {
+const Projects = ({ theme, setProjectsTheme }: Props) => {
   return (
     <div className="PROJECTS TOP-COMP">
-      <ProjectsNormal />
-      {theme === "projects" && <ProjectsProjects />}
+      <ProjectsNormal theme={theme} />
+      <ProjectsProjects theme={theme} setProjectsTheme={setProjectsTheme} />
     </div>
   );
 };

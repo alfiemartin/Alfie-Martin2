@@ -5,18 +5,26 @@ import Clock from "../components/Clock/Clock";
 import Contact from "../components/Contact/Contact";
 import Projects from "../components/Projects/Projects";
 import Secret from "../components/Secret/Secret";
-import { ThemeType } from "../utilities/MyTypes";
+import { ThemeType, ProjectThemeType } from "../utilities/MyTypes";
 
-export default class Home extends React.Component<{}, { theme: ThemeType }> {
+interface State {
+  theme: ThemeType;
+  projectsTheme: ProjectThemeType;
+}
+
+export default class Home extends React.Component<{}, State> {
   constructor(props: {}) {
     super(props);
 
-    this.state = { theme: "normal" };
+    this.state = { theme: "normal", projectsTheme: "normal_sec" };
   }
 
   changeThemeHandler = (theme: ThemeType) => {
     this.setState({ theme: theme });
-    console.log(theme);
+  };
+
+  setProjectsTheme = (theme: ProjectThemeType) => {
+    this.setState({ projectsTheme: theme });
   };
 
   render() {
@@ -41,8 +49,12 @@ export default class Home extends React.Component<{}, { theme: ThemeType }> {
             <div
               className="grid-item projects"
               onMouseEnter={() => this.changeThemeHandler("projects")}
+              onMouseLeave={() => this.setState({ theme: "normal" })}
             >
-              <Projects theme={this.state.theme} />
+              <Projects
+                theme={this.state.theme}
+                setProjectsTheme={this.setProjectsTheme}
+              />
               <div className="overlay"></div>
             </div>
             <div
@@ -63,7 +75,7 @@ export default class Home extends React.Component<{}, { theme: ThemeType }> {
               className="grid-item about"
               onMouseEnter={() => this.changeThemeHandler("about")}
             >
-              <About /> {this.state.theme}
+              <About /> {this.state.theme} + {this.state.projectsTheme}
               <div className="overlay"></div>
             </div>
           </div>
