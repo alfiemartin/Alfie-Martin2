@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.HOME {
+  background: #1f2937;
+}
+
+.master-grid-section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .grid {
+    width: 100vh;
+    height: 100vh;
+    //background: #6e8099;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+
+    .grid-item {
+      width: 100%;
+      height: 100%;
+      border: 1px solid white;
+      color: white;
+      position: relative;
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(50, 16, 204, 0.403);
+        pointer-events: none;
+      }
+
+      &.alfie {
+        grid-column: span 3 / span 3;
+      }
+
+      &.projects {
+        grid-column: span 2 / span 2;
+        grid-row: span 2 / span 2;
+      }
+
+      &.contact {
+        grid-column: span 2 / span 2;
+      }
+
+      &.secret {
+        grid-column: span 2 / span 2;
+      }
+
+      &.about {
+        grid-column: span 4 / span 4;
+      }
+    }
+  }
+}
+
+.TOP-COMP {
+  width: 100%;
+  height: 100%;
+
+  .NORMAL {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+}

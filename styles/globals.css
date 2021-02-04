@@ -1,16 +1,102 @@
-html,
-body {
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.HOME {
+  background: #1f2937;
 }
 
-* {
-  box-sizing: border-box;
+.master-grid-section {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
+.master-grid-section .grid {
+  width: 100vh;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.master-grid-section .grid .grid-item {
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+  color: white;
+  position: relative;
+}
+
+.master-grid-section .grid .grid-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 16, 204, 0.403);
+  pointer-events: none;
+}
+
+.master-grid-section .grid .grid-item.alfie {
+  grid-column: span 3 / span 3;
+}
+
+.master-grid-section .grid .grid-item.projects {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+}
+
+.master-grid-section .grid .grid-item.contact {
+  grid-column: span 2 / span 2;
+}
+
+.master-grid-section .grid .grid-item.secret {
+  grid-column: span 2 / span 2;
+}
+
+.master-grid-section .grid .grid-item.about {
+  grid-column: span 4 / span 4;
+}
+
+.TOP-COMP {
+  width: 100%;
+  height: 100%;
+}
+
+.TOP-COMP .NORMAL {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.TOP-COMP .NORMAL h1 {
+  font-size: 4rem;
+}
+/*# sourceMappingURL=globals.css.map */
