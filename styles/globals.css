@@ -172,6 +172,8 @@
   left: 0;
   position: absolute;
   overflow: hidden;
+  -webkit-perspective: 800px;
+          perspective: 800px;
 }
 
 .PROJECTS .PROJECTS-PROJECTS > .grid {

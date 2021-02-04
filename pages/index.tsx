@@ -16,10 +16,10 @@ export default class Home extends React.Component<{}, State> {
   constructor(props: {}) {
     super(props);
 
-    this.state = { theme: "normal", projectsTheme: "normal_sec" };
+    this.state = { theme: "normal", projectsTheme: "none" };
   }
 
-  changeThemeHandler = (theme: ThemeType) => {
+  setTheme = (theme: ThemeType) => {
     this.setState({ theme: theme });
   };
 
@@ -34,46 +34,46 @@ export default class Home extends React.Component<{}, State> {
           <div className="grid">
             <div
               className="grid-item alfie"
-              onMouseEnter={() => this.changeThemeHandler("alfie")}
+              onMouseEnter={() => this.setTheme("alfie")}
             >
               <Alfie />
               <div className="overlay"></div>
             </div>
             <div
               className="grid-item clock"
-              onMouseEnter={() => this.changeThemeHandler("clock")}
+              onMouseEnter={() => this.setTheme("clock")}
             >
               <Clock />
               <div className="overlay"></div>
             </div>
             <div
               className="grid-item projects"
-              onMouseEnter={() => this.changeThemeHandler("projects")}
-              onMouseLeave={() => this.setState({ theme: "normal" })}
+              onMouseEnter={() => this.setTheme("projects")}
             >
               <Projects
                 theme={this.state.theme}
                 setProjectsTheme={this.setProjectsTheme}
+                setTheme={this.setTheme}
               />
               <div className="overlay"></div>
             </div>
             <div
               className="grid-item contact"
-              onMouseEnter={() => this.changeThemeHandler("contact")}
+              onMouseEnter={() => this.setTheme("contact")}
             >
               <Contact />
               <div className="overlay"></div>
             </div>
             <div
               className="grid-item secret"
-              onMouseEnter={() => this.changeThemeHandler("secret")}
+              onMouseEnter={() => this.setTheme("secret")}
             >
               <Secret />
               <div className="overlay"></div>
             </div>
             <div
               className="grid-item about"
-              onMouseEnter={() => this.changeThemeHandler("about")}
+              onMouseEnter={() => this.setTheme("about")}
             >
               <About /> {this.state.theme} + {this.state.projectsTheme}
               <div className="overlay"></div>

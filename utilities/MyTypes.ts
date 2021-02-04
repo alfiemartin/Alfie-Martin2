@@ -18,7 +18,7 @@ export type ThemeType =
     | "about";
 
 export type ProjectThemeType =  
-| "normal_sec"
+| "none"
 | "neurify"
 | "Nice and Chill"
 | "RDM Technology"
