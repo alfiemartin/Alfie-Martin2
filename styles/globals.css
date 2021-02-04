@@ -25,7 +25,7 @@
           align-items: center;
 }
 
-.master-grid-section .grid {
+.master-grid-section > .grid {
   width: 100vh;
   height: 100vh;
   display: -ms-grid;
@@ -34,11 +34,11 @@
       grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: (1fr)[4];
       grid-template-rows: repeat(4, 1fr);
-  gap: 2rem;
-  padding: 2rem;
+  gap: 1.5rem;
+  padding: 1.5rem;
 }
 
-.master-grid-section .grid .grid-item {
+.master-grid-section > .grid > .grid-item {
   width: 100%;
   height: 100%;
   border: 1px solid white;
@@ -46,7 +46,7 @@
   position: relative;
 }
 
-.master-grid-section .grid .grid-item .overlay {
+.master-grid-section > .grid > .grid-item .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -56,24 +56,24 @@
   pointer-events: none;
 }
 
-.master-grid-section .grid .grid-item.alfie {
+.master-grid-section > .grid > .grid-item.alfie {
   grid-column: span 3 / span 3;
 }
 
-.master-grid-section .grid .grid-item.projects {
+.master-grid-section > .grid > .grid-item.projects {
   grid-column: span 2 / span 2;
   grid-row: span 2 / span 2;
 }
 
-.master-grid-section .grid .grid-item.contact {
+.master-grid-section > .grid > .grid-item.contact {
   grid-column: span 2 / span 2;
 }
 
-.master-grid-section .grid .grid-item.secret {
+.master-grid-section > .grid > .grid-item.secret {
   grid-column: span 2 / span 2;
 }
 
-.master-grid-section .grid .grid-item.about {
+.master-grid-section > .grid > .grid-item.about {
   grid-column: span 4 / span 4;
 }
 
@@ -97,6 +97,108 @@
 }
 
 .TOP-COMP .NORMAL h1 {
-  font-size: 4rem;
+  font-size: 5rem;
+}
+
+.clock-cont {
+  width: 20vh;
+  height: 20vh;
+  padding: 0.7rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+.clock-cont .circle-clock {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: relative;
+  background: #480562;
+}
+
+.clock-cont .circle-clock .clock-lines {
+  width: 4px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  background: wheat;
+  border-radius: 50%;
+}
+
+.clock-cont .circle-clock .clock-lines.hour-dashes {
+  height: 20px;
+  width: 2px;
+  border-radius: 0;
+}
+
+.clock-cont .circle-clock .clock-lines.hour-hand {
+  height: 30%;
+  width: 4px;
+  background: red;
+}
+
+.clock-cont .circle-clock .clock-lines.minute-hand {
+  height: 46%;
+  width: 4px;
+  border-radius: 40%;
+  background: green;
+}
+
+.clock-cont .circle-clock .clock-lines.second-hand {
+  height: 35%;
+  width: 3px;
+  background: #2b9fa3;
+}
+
+.PROJECTS {
+  position: relative;
+}
+
+.PROJECTS .PROJECTS-PROJECTS {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.PROJECTS .PROJECTS-PROJECTS > .grid {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+}
+
+.PROJECTS .PROJECTS-PROJECTS > .grid > .grid-item {
+  border: 1px solid white;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
 }
 /*# sourceMappingURL=globals.css.map */

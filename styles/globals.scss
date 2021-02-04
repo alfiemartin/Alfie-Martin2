@@ -18,17 +18,17 @@
   justify-content: center;
   align-items: center;
 
-  .grid {
+  & > .grid {
     width: 100vh;
     height: 100vh;
     //background: #6e8099;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 2rem;
-    padding: 2rem;
+    gap: 1.5rem;
+    padding: 1.5rem;
 
-    .grid-item {
+    & > .grid-item {
       width: 100%;
       height: 100%;
       border: 1px solid white;
@@ -80,7 +80,99 @@
     justify-content: center;
     align-items: center;
     h1 {
-      font-size: 4rem;
+      font-size: 5rem;
     }
   }
 }
+
+//Clock---------------------------------------------------------
+.clock-cont {
+  width: 20vh;
+  height: 20vh;
+  padding: 0.7rem;
+  position: relative;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+
+  .circle-clock {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid white;
+    position: relative;
+    background: #480562;
+
+    .clock-lines {
+      width: 4px;
+      height: 50px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: top;
+      background: wheat;
+      border-radius: 50%;
+
+      &.hour-dashes {
+        height: 20px;
+        width: 2px;
+        border-radius: 0;
+      }
+
+      &.hour-hand {
+        height: 30%;
+        width: 4px;
+        background: red;
+      }
+
+      &.minute-hand {
+        height: 46%;
+        width: 4px;
+        border-radius: 40%;
+        background: green;
+      }
+
+      &.second-hand {
+        height: 35%;
+        width: 3px;
+        background: rgb(43, 159, 163);
+      }
+    }
+  }
+}
+//\Clock---------------------------------------------------------
+//Projects---------------------------------------------------------
+.PROJECTS {
+  position: relative;
+
+  .PROJECTS-PROJECTS {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+
+    & > .grid {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      & > .grid-item {
+        border: 1px solid white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+//\Projects---------------------------------------------------------
