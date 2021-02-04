@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { ThemeProps } from "../../utilities/MyTypes";
-import gsap from "gsap";
 
 const themeIsProjectsTween: gsap.TweenVars = { opacity: 0 };
 const themeIsNormalTween: gsap.TweenVars = { opacity: 1 };
