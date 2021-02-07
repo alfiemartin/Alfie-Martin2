@@ -163,6 +163,7 @@
 
 .PROJECTS {
   position: relative;
+  overflow: hidden;
 }
 
 .PROJECTS .PROJECTS-PROJECTS {
@@ -171,7 +172,6 @@
   top: 0;
   left: 0;
   position: absolute;
-  overflow: hidden;
   -webkit-perspective: 800px;
           perspective: 800px;
 }

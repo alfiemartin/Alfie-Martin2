@@ -18,11 +18,11 @@ export type ThemeType =
     | "about";
 
 export type ProjectThemeType =  
-| "none"
 | "neurify"
 | "Nice and Chill"
 | "RDM Technology"
-| "Tap Flash";    
+| "Tap Flash"
+| "none";    
 
 export interface ThemeProps {
   theme: ThemeType;

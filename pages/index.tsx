@@ -27,54 +27,36 @@ export default class Home extends React.Component<{}, State> {
     this.setState({ projectsTheme: theme });
   };
 
+  handleMouseOverSection = (theme: ThemeType) => {
+    if (this.state.projectsTheme === "none") this.setTheme(theme);
+  };
+
   render() {
     return (
       <div className="HOME">
         <div className="master-grid-section">
           <div className="grid">
-            <div
-              className="grid-item alfie"
-              onMouseEnter={() => this.setTheme("alfie")}
-            >
+            <div className="grid-item alfie" onMouseEnter={() => this.handleMouseOverSection("alfie")}>
               <Alfie />
               <div className="overlay"></div>
             </div>
-            <div
-              className="grid-item clock"
-              onMouseEnter={() => this.setTheme("clock")}
-            >
+            <div className="grid-item clock" onMouseEnter={() => this.handleMouseOverSection("clock")}>
               <Clock />
               <div className="overlay"></div>
             </div>
-            <div
-              className="grid-item projects"
-              onMouseEnter={() => this.setTheme("projects")}
-            >
-              <Projects
-                theme={this.state.theme}
-                setProjectsTheme={this.setProjectsTheme}
-                setTheme={this.setTheme}
-              />
+            <div className="grid-item projects" onMouseEnter={() => this.handleMouseOverSection("projects")}>
+              <Projects theme={this.state.theme} setProjectsTheme={this.setProjectsTheme} setTheme={this.setTheme} />
               <div className="overlay"></div>
             </div>
-            <div
-              className="grid-item contact"
-              onMouseEnter={() => this.setTheme("contact")}
-            >
+            <div className="grid-item contact" onMouseEnter={() => this.handleMouseOverSection("contact")}>
               <Contact />
               <div className="overlay"></div>
             </div>
-            <div
-              className="grid-item secret"
-              onMouseEnter={() => this.setTheme("secret")}
-            >
+            <div className="grid-item secret" onMouseEnter={() => this.handleMouseOverSection("secret")}>
               <Secret />
               <div className="overlay"></div>
             </div>
-            <div
-              className="grid-item about"
-              onMouseEnter={() => this.setTheme("about")}
-            >
+            <div className="grid-item about" onMouseEnter={() => this.handleMouseOverSection("about")}>
               <About /> {this.state.theme} + {this.state.projectsTheme}
               <div className="overlay"></div>
             </div>
