@@ -1,10 +1,18 @@
 import React from "react";
+import { ProjectThemeType, ThemeType } from "../../utilities/MyTypes";
 import AlfieNormal from "./AlfieNormal";
+import AlfieProjects from "./AlfieProjects";
 
-const Alfie = () => {
+interface Props {
+  theme: ThemeType;
+  projectsTheme: ProjectThemeType;
+}
+
+const Alfie = ({ theme, projectsTheme }: Props) => {
   return (
     <div className="ALFIE TOP-COMP">
-      <AlfieNormal />
+      <AlfieNormal theme={theme} projectsTheme={projectsTheme} />
+      <AlfieProjects theme={theme} projectsTheme={projectsTheme} />
     </div>
   );
 };

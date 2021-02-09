@@ -9,7 +9,7 @@ export const useClockTime = () => {
   const [clockTicker, setClockTicker] = useState<boolean>(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setTime({
         hours: newDate.getHours(),
         minutes: newDate.getMinutes(),
@@ -17,6 +17,8 @@ export const useClockTime = () => {
       });
       setClockTicker(!clockTicker);
     }, 10);
+
+    return () => clearTimeout(timer);
   }, [clockTicker]);
 
   return time

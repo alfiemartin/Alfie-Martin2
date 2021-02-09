@@ -26,6 +26,7 @@
     grid-template-rows: repeat(4, 1fr);
     gap: 1.5rem;
     padding: 1.5rem;
+    position: relative;
 
     & > .grid-item {
       width: 100%;
@@ -71,6 +72,7 @@
 .TOP-COMP {
   width: 100%;
   height: 100%;
+  position: relative;
 
   .NORMAL {
     width: 100%;
@@ -85,11 +87,25 @@
 }
 
 //Clock---------------------------------------------------------
-.clock-cont {
+.CLOCK {
+  position: relative;
+  overflow: hidden;
+
+  .CLOCK-PROJECTS {
+    position: absolute;
+
+    img {
+      object-fit: fill;
+      width: 100%;
+    }
+  }
+}
+
+.CLOCK-CONT {
   width: 20vh;
   height: 20vh;
   padding: 0.7rem;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-items: center;
   align-items: center;
@@ -185,3 +201,33 @@
 }
 
 //\Projects---------------------------------------------------------
+//Alfie-------------------------------------------------------------
+.ALFIE {
+  position: relative;
+  overflow: hidden;
+  .NORMAL {
+    position: absolute;
+  }
+}
+//\Alfie------------------------------------------------------------
+//Contact---------------------------------------------------------
+.CONTACT {
+  position: relative;
+  overflow: hidden;
+
+  .CONTACT-PROJECTS {
+    position: absolute;
+
+    h1 {
+      width: 100%;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+    }
+  }
+
+  .NORMAL {
+    position: absolute;
+  }
+}
+//\Contact------------------------------------------

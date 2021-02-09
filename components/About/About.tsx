@@ -1,7 +1,12 @@
 import React from "react";
 import AboutNormal from "./AboutNormal";
 
-const About = () => {
+interface Props {
+  theme: ThemeType;
+  projectsTheme: ProjectThemeType;
+}
+
+const About = ({ theme, projectsTheme }: Props) => {
   return (
     <div className="ABOUT TOP-COMP">
       <AboutNormal />

@@ -1,0 +1,81 @@
+import React, { useEffect, useRef, useState } from "react";
+import { ThemeType, ProjectThemeType } from "../../utilities/MyTypes";
+import gsap from "gsap";
+
+interface Props {
+  theme: ThemeType;
+  projectsTheme: ProjectThemeType;
+}
+
+const ClockProjects = ({ theme, projectsTheme }: Props) => {
+  let tempRef = useRef<GSAPTween>(null);
+  let contRef = useRef<HTMLDivElement>(null);
+  let imageRef = useRef<HTMLImageElement>(null);
+
+  const [imageSrc, setImageSrc] = useState<string>("neurifylogo.png");
+  const [blockImageChangeAnimation, setBlockImageChangeAnimation] = useState<boolean>(false);
+
+  useEffect(() => {
+    setBlockImageChangeAnimation(true);
+    if (theme === "projects") {
+      tempRef.current = gsap.to(imageRef.current, { x: 0, duration: 0.5 });
+    } else {
+      tempRef.current = gsap.to(imageRef.current, { x: contRef.current.clientWidth, duration: 0.5 });
+    }
+    const timer = setTimeout(() => {
+      setBlockImageChangeAnimation(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [theme]);
+
+  useEffect(() => {
+    let timer;
+    const animateImage = (projectTheme: string) => {
+      if (!blockImageChangeAnimation) {
+        tempRef.current = gsap.to(imageRef.current, { opacity: 0, duration: 0.2 });
+        tempRef.current = gsap.to(imageRef.current, { opacity: 1, duration: 0.2, delay: 0.3 });
+
+        timer = setTimeout(() => {
+          setImageSrc(projectTheme);
+        }, 200);
+      } else setImageSrc(projectTheme);
+    };
+
+    switch (projectsTheme) {
+      case "Nice and Chill":
+        animateImage("naclogo.png");
+        break;
+      case "RDM Technology":
+        animateImage("rdmlogo.gif");
+        break;
+      case "Tap Flash":
+        animateImage("TapFlash logo.png");
+        break;
+      case "neurify":
+        animateImage("neurifylogo.png");
+        break;
+      default:
+    }
+
+    return () => clearTimeout(timer);
+  }, [projectsTheme]);
+
+  //preload ?????
+  useEffect(() => {
+    const images = ["naclogo.png", "rdmlogo.gif", "TapFlash logo.png", "neurifylogo.png"];
+
+    images.forEach((image, index) => {
+      const img = new Image();
+      img.src = image;
+    });
+  }, []);
+
+  return (
+    <div ref={contRef} className="CLOCK-PROJECTS NORMAL">
+      <img ref={imageRef} src={imageSrc} alt={projectsTheme} />
+    </div>
+  );
+};
+
+export default ClockProjects;

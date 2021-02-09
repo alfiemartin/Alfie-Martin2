@@ -36,6 +36,7 @@
       grid-template-rows: repeat(4, 1fr);
   gap: 1.5rem;
   padding: 1.5rem;
+  position: relative;
 }
 
 .master-grid-section > .grid > .grid-item {
@@ -80,6 +81,7 @@
 .TOP-COMP {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .TOP-COMP .NORMAL {
@@ -100,11 +102,26 @@
   font-size: 5rem;
 }
 
-.clock-cont {
+.CLOCK {
+  position: relative;
+  overflow: hidden;
+}
+
+.CLOCK .CLOCK-PROJECTS {
+  position: absolute;
+}
+
+.CLOCK .CLOCK-PROJECTS img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+}
+
+.CLOCK-CONT {
   width: 20vh;
   height: 20vh;
   padding: 0.7rem;
-  position: relative;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,7 +132,7 @@
   overflow: hidden;
 }
 
-.clock-cont .circle-clock {
+.CLOCK-CONT .circle-clock {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -124,7 +141,7 @@
   background: #480562;
 }
 
-.clock-cont .circle-clock .clock-lines {
+.CLOCK-CONT .circle-clock .clock-lines {
   width: 4px;
   height: 50px;
   position: absolute;
@@ -136,26 +153,26 @@
   border-radius: 50%;
 }
 
-.clock-cont .circle-clock .clock-lines.hour-dashes {
+.CLOCK-CONT .circle-clock .clock-lines.hour-dashes {
   height: 20px;
   width: 2px;
   border-radius: 0;
 }
 
-.clock-cont .circle-clock .clock-lines.hour-hand {
+.CLOCK-CONT .circle-clock .clock-lines.hour-hand {
   height: 30%;
   width: 4px;
   background: red;
 }
 
-.clock-cont .circle-clock .clock-lines.minute-hand {
+.CLOCK-CONT .circle-clock .clock-lines.minute-hand {
   height: 46%;
   width: 4px;
   border-radius: 40%;
   background: green;
 }
 
-.clock-cont .circle-clock .clock-lines.second-hand {
+.CLOCK-CONT .circle-clock .clock-lines.second-hand {
   height: 35%;
   width: 3px;
   background: #2b9fa3;
@@ -209,5 +226,34 @@
   width: 80%;
   height: 40%;
   font-size: 5rem;
+}
+
+.ALFIE {
+  position: relative;
+  overflow: hidden;
+}
+
+.ALFIE .NORMAL {
+  position: absolute;
+}
+
+.CONTACT {
+  position: relative;
+  overflow: hidden;
+}
+
+.CONTACT .CONTACT-PROJECTS {
+  position: absolute;
+}
+
+.CONTACT .CONTACT-PROJECTS h1 {
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.CONTACT .NORMAL {
+  position: absolute;
 }
 /*# sourceMappingURL=globals.css.map */
