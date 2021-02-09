@@ -231,3 +231,49 @@
   }
 }
 //\Contact------------------------------------------
+//Secret---------------------------------------------------
+.SECRET {
+  position: relative;
+  overflow: hidden;
+  perspective: 800px;
+
+  .NORMAL {
+    position: absolute;
+  }
+
+  .SECRET-PROJECTS {
+    display: flex;
+
+    div {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        padding: 1rem;
+        width: 80%;
+        height: 80%;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+//\Secret--------------------------------------------------
+//About----------------------------------------------------
+.ABOUT {
+  position: relative;
+  overflow: hidden;
+
+  .NORMAL {
+    position: absolute;
+  }
+
+  .ABOUT-PROJECTS {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+//\About---------------------------------------------------

@@ -256,4 +256,55 @@
 .CONTACT .NORMAL {
   position: absolute;
 }
+
+.SECRET {
+  position: relative;
+  overflow: hidden;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+}
+
+.SECRET .NORMAL {
+  position: absolute;
+}
+
+.SECRET .SECRET-PROJECTS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.SECRET .SECRET-PROJECTS div {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.SECRET .SECRET-PROJECTS div button {
+  padding: 1rem;
+  width: 80%;
+  height: 80%;
+  font-size: 1.5rem;
+}
+
+.ABOUT {
+  position: relative;
+  overflow: hidden;
+}
+
+.ABOUT .NORMAL {
+  position: absolute;
+}
+
+.ABOUT .ABOUT-PROJECTS h1 {
+  font-size: 1.5rem;
+}
 /*# sourceMappingURL=globals.css.map */

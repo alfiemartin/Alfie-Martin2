@@ -1,5 +1,7 @@
 import React from "react";
+import { ThemeType, ProjectThemeType } from "../../utilities/MyTypes";
 import AboutNormal from "./AboutNormal";
+import AboutProjects from "./AboutProjects";
 
 interface Props {
   theme: ThemeType;
@@ -9,7 +11,8 @@ interface Props {
 const About = ({ theme, projectsTheme }: Props) => {
   return (
     <div className="ABOUT TOP-COMP">
-      <AboutNormal />
+      <AboutNormal theme={theme} projectsTheme={projectsTheme} />
+      <AboutProjects theme={theme} projectsTheme={projectsTheme} />
     </div>
   );
 };

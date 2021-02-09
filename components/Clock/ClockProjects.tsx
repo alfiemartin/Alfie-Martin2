@@ -30,16 +30,26 @@ const ClockProjects = ({ theme, projectsTheme }: Props) => {
   }, [theme]);
 
   useEffect(() => {
-    let timer;
+    let timer: NodeJS.Timeout;
     const animateImage = (projectTheme: string) => {
       if (!blockImageChangeAnimation) {
         tempRef.current = gsap.to(imageRef.current, { opacity: 0, duration: 0.2 });
         tempRef.current = gsap.to(imageRef.current, { opacity: 1, duration: 0.2, delay: 0.3 });
 
         timer = setTimeout(() => {
-          setImageSrc(projectTheme);
+          const img = new Image();
+          img.onload = () => {
+            setImageSrc(projectTheme);
+          };
+          img.src = imageSrc;
         }, 200);
-      } else setImageSrc(projectTheme);
+      } else {
+        const img = new Image();
+        img.onload = () => {
+          setImageSrc(projectTheme);
+        };
+        img.src = imageSrc;
+      }
     };
 
     switch (projectsTheme) {
@@ -60,16 +70,6 @@ const ClockProjects = ({ theme, projectsTheme }: Props) => {
 
     return () => clearTimeout(timer);
   }, [projectsTheme]);
-
-  //preload ?????
-  useEffect(() => {
-    const images = ["naclogo.png", "rdmlogo.gif", "TapFlash logo.png", "neurifylogo.png"];
-
-    images.forEach((image, index) => {
-      const img = new Image();
-      img.src = image;
-    });
-  }, []);
 
   return (
     <div ref={contRef} className="CLOCK-PROJECTS NORMAL">
