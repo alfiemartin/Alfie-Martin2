@@ -14,9 +14,9 @@ const AlfieNormal = ({ theme, projectsTheme }: Props) => {
 
   useEffect(() => {
     if (theme === "projects") {
-      tempRef.current = gsap.to(titleRef.current, { y: contRef.current.clientHeight });
+      tempRef.current = gsap.to(titleRef.current, { z: -200, scale: 0 });
     } else {
-      tempRef.current = gsap.to(titleRef.current, { y: 0 });
+      tempRef.current = gsap.to(titleRef.current, { z: 0, scale: 1 });
     }
   }, [theme]);
 

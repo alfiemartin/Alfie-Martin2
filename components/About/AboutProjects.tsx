@@ -8,10 +8,10 @@ interface Props {
 }
 
 const aboutTexts = [
-  "Was built using Wordpress.",
-  "Was built using php. A redesign is currently on the way to convert to a more modern stack, but for now, Covid delays all..",
+  "neurify was built using Wordpress and Elementor. This was my first introduction to web development, back during the summer pandemic.",
+  "Nice and chill was built using mainly php. A redesign is currently on the way to convert to a more modern stack, but for now, Covid delays all..",
   "Was built using next js and was one of my first sites i built using a framework. This project also used Tailwind CSS for styling.",
-  "Tapflash was built using react js. The game also uses Tailwind CSS for styling and Firebase for authentication and databases",
+  "Tapflash was built using react js. The game also uses Tailwind CSS for styling and Firebase for authentication and databases.",
 ];
 
 const AboutProjects = ({ theme, projectsTheme }: Props) => {
@@ -20,16 +20,31 @@ const AboutProjects = ({ theme, projectsTheme }: Props) => {
   let textRef = useRef<HTMLHeadingElement>(null);
 
   const [text, setText] = useState<string>(aboutTexts[0]);
+  const [blockProjectThemeChange, setBlockProjectThemeChange] = useState<boolean>(false);
 
   useEffect(() => {
+    setBlockProjectThemeChange(true);
     if (theme === "projects") {
-      tempRef.current = gsap.to(textRef.current, { y: 0 });
-    } else [(tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight }))];
+      tempRef.current = gsap.to(textRef.current, { y: 0, duration: 0.4 });
+    } else [(tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: 0.4 }))];
+
+    let timer = setTimeout(() => {
+      setBlockProjectThemeChange(false);
+    }, 400);
+    return () => clearInterval(timer);
   }, [theme]);
 
   useEffect(() => {
+    let timer: NodeJS.Timeout;
     const animateText = (index: number) => {
-      setText(aboutTexts[index]);
+      if (!blockProjectThemeChange) {
+        tempRef.current = gsap.to(textRef.current, { opacity: 0, duration: 0.3 });
+        tempRef.current = gsap.to(textRef.current, { opacity: 1, duration: 0.3, delay: 0.3 });
+      }
+
+      timer = setTimeout(() => {
+        setText(aboutTexts[index]);
+      }, 300);
     };
 
     switch (projectsTheme) {
@@ -47,11 +62,13 @@ const AboutProjects = ({ theme, projectsTheme }: Props) => {
         break;
       default:
     }
+
+    return () => clearInterval(timer);
   }, [projectsTheme]);
 
   return (
     <div className="NORMAL ABOUT-PROJECTS" ref={contRef}>
-      <h1 ref={textRef}>{projectsTheme} was made using typescript, react and ...</h1>
+      <h1 ref={textRef}>{text}</h1>
     </div>
   );
 };

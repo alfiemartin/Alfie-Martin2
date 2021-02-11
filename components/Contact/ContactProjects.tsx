@@ -8,7 +8,7 @@ interface Props {
 }
 
 const paragraphs = [
-  "neurify was founded in response to the rapid digitalisation of marketing during the Coronavirus pandemic.",
+  "neurify was founded by myself and two of my brothers in response to the rapid digitalisation of marketing during the Coronavirus pandemic.",
   "Nice and chill is the daughter site to neurify. This is where content for neurify campains are stored. Example content includes trackable quizzes and articles which produce highly segmented data",
   "RDM Technology is an engineering company based in sheffield. RDM Technology design and develop electronic and software solutions",
   "Tap Flash is a fun little game with the potential to evolve into something bigger. Buttons flash on the screen and you have to press them in order. Pretty easy? ;)",
@@ -19,16 +19,35 @@ const ContactProjects = ({ theme, projectsTheme }: Props) => {
   let tempRef = useRef<GSAPTween>(null);
   let textRef = useRef<HTMLHeadingElement>(null);
   const [text, setText] = useState<string>(paragraphs[0]);
+  const [blockProjectThemeChange, setBlockProjectThemeChange] = useState<boolean>(false);
 
   useEffect(() => {
+    setBlockProjectThemeChange(true);
     if (theme === "projects") {
-      tempRef.current = gsap.to(textRef.current, { y: 0 });
-    } else tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight });
+      tempRef.current = gsap.to(textRef.current, { y: 0, duration: 0.3 });
+    } else tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: 0.3 });
+
+    let timer = setTimeout(() => {
+      setBlockProjectThemeChange(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [theme]);
 
   useEffect(() => {
+    let timer: NodeJS.Timeout;
     const changeText = (index: number) => {
-      setText(paragraphs[index]);
+      if (!blockProjectThemeChange) {
+        tempRef.current = gsap.to(textRef.current, { opacity: 0, duration: 0.3 });
+        tempRef.current = gsap.to(textRef.current, { opacity: 1, duration: 0.3, delay: 0.3 });
+      }
+
+      timer = setTimeout(
+        () => {
+          setText(paragraphs[index]);
+        },
+        blockProjectThemeChange ? 0 : 300
+      );
     };
 
     switch (projectsTheme) {

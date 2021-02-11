@@ -7,18 +7,18 @@ interface Props {
   projectsTheme: ProjectThemeType;
 }
 
-const linkList = [
-  "https://www.google.com",
-  "https://www.facebook.com",
-  "https://www.bing.com",
-  "https://www.yahoo.com",
+const codeList = [
+  "https://github.com/alfiemartin/",
+  "https://github.com/alfiemartin/",
+  "https://github.com/alfiemartin/rdm-technology",
+  "https://github.com/alfiemartin/TapFlash",
 ];
 
 const liveList = [
   "https://www.neurify.co.uk",
   "https://www.niceandchill.com",
   "https://www.rdmtechnology.com",
-  "https://www.tapflash-77edb.web.app/",
+  "https://tapflash-77edb.web.app/",
 ];
 
 const openInNewTab = (url: string) => {
@@ -32,7 +32,7 @@ const SecretProjects = ({ theme, projectsTheme }: Props) => {
   let liveDivRef = useRef<HTMLDivElement>(null);
   let tempRef = useRef<GSAPTween>(null);
 
-  const [codeLink, setCodeLink] = useState<string>(linkList[0]);
+  const [codeLink, setCodeLink] = useState<string>(codeList[0]);
   const [liveLink, setLiveLink] = useState<string>(liveList[0]);
 
   useEffect(() => {
@@ -48,19 +48,19 @@ const SecretProjects = ({ theme, projectsTheme }: Props) => {
   useEffect(() => {
     switch (projectsTheme) {
       case "neurify":
-        setCodeLink(linkList[0]);
+        setCodeLink(codeList[0]);
         setLiveLink(liveList[0]);
         break;
       case "Nice and Chill":
-        setCodeLink(linkList[1]);
+        setCodeLink(codeList[1]);
         setLiveLink(liveList[1]);
         break;
       case "RDM Technology":
-        setCodeLink(linkList[2]);
+        setCodeLink(codeList[2]);
         setLiveLink(liveList[2]);
         break;
       case "Tap Flash":
-        setCodeLink(linkList[3]);
+        setCodeLink(codeList[3]);
         setLiveLink(liveList[3]);
         break;
       default:

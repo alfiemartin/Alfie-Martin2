@@ -231,6 +231,8 @@
 .ALFIE {
   position: relative;
   overflow: hidden;
+  -webkit-perspective: 800px;
+          perspective: 800px;
 }
 
 .ALFIE .NORMAL {
@@ -306,5 +308,6 @@
 
 .ABOUT .ABOUT-PROJECTS h1 {
   font-size: 1.5rem;
+  padding: 1rem;
 }
 /*# sourceMappingURL=globals.css.map */
