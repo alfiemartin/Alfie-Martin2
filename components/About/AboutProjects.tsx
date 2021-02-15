@@ -23,28 +23,34 @@ const AboutProjects = ({ theme, projectsTheme }: Props) => {
   const [blockProjectThemeChange, setBlockProjectThemeChange] = useState<boolean>(false);
 
   useEffect(() => {
+    const timing = 0.4;
     setBlockProjectThemeChange(true);
     if (theme === "projects") {
-      tempRef.current = gsap.to(textRef.current, { y: 0, duration: 0.4 });
-    } else [(tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: 0.4 }))];
+      tempRef.current = gsap.to(textRef.current, { y: 0, duration: timing });
+    } else tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: timing });
 
     let timer = setTimeout(() => {
       setBlockProjectThemeChange(false);
-    }, 400);
-    return () => clearInterval(timer);
+    }, timing * 1000);
+    return () => clearTimeout(timer);
   }, [theme]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
+    const timing = 0.4;
     const animateText = (index: number) => {
       if (!blockProjectThemeChange) {
-        tempRef.current = gsap.to(textRef.current, { opacity: 0, duration: 0.3 });
-        tempRef.current = gsap.to(textRef.current, { opacity: 1, duration: 0.3, delay: 0.3 });
+        tempRef.current = gsap.to(textRef.current, { y: -contRef.current.clientHeight, duration: timing });
+        tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: 0, delay: timing });
+        tempRef.current = gsap.to(textRef.current, { y: 0, duration: timing, delay: timing });
       }
 
-      timer = setTimeout(() => {
-        setText(aboutTexts[index]);
-      }, 300);
+      timer = setTimeout(
+        () => {
+          setText(aboutTexts[index]);
+        },
+        blockProjectThemeChange ? 0 : timing * 1000
+      );
     };
 
     switch (projectsTheme) {
@@ -63,7 +69,7 @@ const AboutProjects = ({ theme, projectsTheme }: Props) => {
       default:
     }
 
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
   }, [projectsTheme]);
 
   return (

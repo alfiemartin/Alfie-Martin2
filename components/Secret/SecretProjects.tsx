@@ -72,7 +72,7 @@ const SecretProjects = ({ theme, projectsTheme }: Props) => {
   return (
     <div ref={contRef} className="NORMAL SECRET-PROJECTS">
       <div ref={codeDivRef}>
-        <button onClick={() => openInNewTab(codeLink)}>View Code!</button>
+        <button onClick={() => openInNewTab(codeLink)}> View Code!</button>
       </div>
       <div ref={liveDivRef}>
         <button onClick={() => openInNewTab(liveLink)}>View Live!</button>

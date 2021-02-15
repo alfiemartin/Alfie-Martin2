@@ -16,38 +16,42 @@ const AlfieProjects = ({ theme, projectsTheme }: Props) => {
   const [blockTitleAnimationChange, setBlockTitleChangeAnimation] = useState<boolean>(false);
 
   useEffect(() => {
-    let timer;
+    let timer: NodeJS.Timeout;
+    let timing = 0.5;
     setBlockTitleChangeAnimation(true);
     if (theme === "projects") {
-      tempRef.current = gsap.to(titleRef.current, { x: 0, duration: 0.5 });
+      tempRef.current = gsap.to(titleRef.current, { opacity: 1, duration: timing });
     } else {
-      tempRef.current = gsap.to(titleRef.current, { x: contRef.current.clientWidth, duration: 0.5 });
+      tempRef.current = gsap.to(titleRef.current, { opacity: 0, duration: timing });
     }
 
     timer = setTimeout(() => {
       setBlockTitleChangeAnimation(false);
-    }, 500);
+    }, timing * 1000);
 
     return () => clearTimeout(timer);
   }, [theme]);
 
   useEffect(() => {
-    let timer;
-    if (!blockTitleAnimationChange) {
-      tempRef.current = gsap.to(titleRef.current, { opacity: 0, duration: 0.2 });
-      tempRef.current = gsap.to(titleRef.current, { opacity: 1, duration: 0.2, delay: 0.3 });
-
-      timer = setTimeout(() => {
-        setTitle(projectsTheme);
-      }, 200);
+    let timer: NodeJS.Timeout;
+    const timing = 0.4;
+    if (!blockTitleAnimationChange && theme === "projects") {
+      tempRef.current = gsap.to(titleRef.current, { x: -contRef.current.clientWidth, duration: timing });
+      tempRef.current = gsap.to(titleRef.current, { x: contRef.current.clientWidth, duration: 0, delay: timing });
+      tempRef.current = gsap.to(titleRef.current, { x: 0, duration: timing, delay: timing });
+      timer = setTimeout(
+        () => {
+          setTitle(projectsTheme);
+        },
+        blockTitleAnimationChange ? 0 : timing * 1000
+      );
     } else setTitle(projectsTheme);
-
     return () => clearTimeout(timer);
   }, [projectsTheme]);
 
   return (
     <div ref={contRef} className="NORMAL ALFIE-PROJECTS">
-      <h1 ref={titleRef}>{title}</h1>
+      <h1 ref={titleRef}>{theme === "projects" ? title : ""}</h1>
     </div>
   );
 };

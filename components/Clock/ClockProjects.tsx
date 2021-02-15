@@ -16,39 +16,36 @@ const ClockProjects = ({ theme, projectsTheme }: Props) => {
   const [blockImageChangeAnimation, setBlockImageChangeAnimation] = useState<boolean>(false);
 
   useEffect(() => {
+    const timing = 0.5;
     setBlockImageChangeAnimation(true);
     if (theme === "projects") {
-      tempRef.current = gsap.to(imageRef.current, { x: 0, duration: 0.5 });
+      tempRef.current = gsap.to(imageRef.current, { x: 0, duration: timing });
     } else {
-      tempRef.current = gsap.to(imageRef.current, { x: contRef.current.clientWidth, duration: 0.5 });
+      tempRef.current = gsap.to(imageRef.current, { x: contRef.current.clientWidth, duration: timing });
     }
     const timer = setTimeout(() => {
       setBlockImageChangeAnimation(false);
-    }, 500);
+    }, timing * 1000);
 
     return () => clearTimeout(timer);
   }, [theme]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
+    const timing = 0.2;
     const animateImage = (projectTheme: string) => {
       if (!blockImageChangeAnimation) {
-        tempRef.current = gsap.to(imageRef.current, { opacity: 0, duration: 0.2 });
-        tempRef.current = gsap.to(imageRef.current, { opacity: 1, duration: 0.2, delay: 0.3 });
+        tempRef.current = gsap.to(imageRef.current, { opacity: 0, duration: timing });
+        tempRef.current = gsap.to(imageRef.current, { opacity: 1, duration: timing, delay: timing });
 
-        timer = setTimeout(() => {
-          const img = new Image();
-          img.onload = () => {
+        timer = setTimeout(
+          () => {
             setImageSrc(projectTheme);
-          };
-          img.src = imageSrc;
-        }, 200);
+          },
+          blockImageChangeAnimation ? 0 : timing * 1000
+        );
       } else {
-        const img = new Image();
-        img.onload = () => {
-          setImageSrc(projectTheme);
-        };
-        img.src = imageSrc;
+        setImageSrc(projectTheme);
       }
     };
 
