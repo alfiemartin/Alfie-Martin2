@@ -32,11 +32,16 @@ const ClockProjects = ({ theme, projectsTheme }: Props) => {
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    const timing = 0.2;
+    const timing = 0.4;
     const animateImage = (projectTheme: string) => {
+      if (projectTheme === "none") {
+        tempRef.current = gsap.to(imageRef.current, { opacity: 0, duration: timing });
+        return;
+      }
+
       if (!blockImageChangeAnimation) {
         tempRef.current = gsap.to(imageRef.current, { opacity: 0, duration: timing });
-        tempRef.current = gsap.to(imageRef.current, { opacity: 1, duration: timing, delay: timing });
+        tempRef.current = gsap.to(imageRef.current, { opacity: 1, duration: timing, delay: timing + 0.1 });
 
         timer = setTimeout(
           () => {
@@ -62,6 +67,8 @@ const ClockProjects = ({ theme, projectsTheme }: Props) => {
       case "neurify":
         animateImage("neurifylogo.png");
         break;
+      case "none":
+        animateImage("");
       default:
     }
 

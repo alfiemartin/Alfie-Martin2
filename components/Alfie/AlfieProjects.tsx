@@ -20,9 +20,9 @@ const AlfieProjects = ({ theme, projectsTheme }: Props) => {
     let timing = 0.5;
     setBlockTitleChangeAnimation(true);
     if (theme === "projects") {
-      tempRef.current = gsap.to(titleRef.current, { opacity: 1, duration: timing });
+      tempRef.current = gsap.to(titleRef.current, { x: 0, duration: timing });
     } else {
-      tempRef.current = gsap.to(titleRef.current, { opacity: 0, duration: timing });
+      tempRef.current = gsap.to(titleRef.current, { x: contRef.current.clientWidth, duration: timing });
     }
 
     timer = setTimeout(() => {

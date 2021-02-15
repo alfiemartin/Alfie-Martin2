@@ -13,10 +13,11 @@ const AlfieNormal = ({ theme, projectsTheme }: Props) => {
   let contRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const timing = 0.5;
     if (theme === "projects") {
-      tempRef.current = gsap.to(titleRef.current, { z: -200, scale: 0 });
+      tempRef.current = gsap.to(titleRef.current, { x: -contRef.current.clientWidth, duration: timing });
     } else {
-      tempRef.current = gsap.to(titleRef.current, { z: 0, scale: 1 });
+      tempRef.current = gsap.to(titleRef.current, { x: 0, duration: timing });
     }
   }, [theme]);
 

@@ -39,6 +39,16 @@ const AboutProjects = ({ theme, projectsTheme }: Props) => {
     let timer: NodeJS.Timeout;
     const timing = 0.4;
     const animateText = (index: number) => {
+      if (index === -1) {
+        tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: timing });
+
+        timer = setTimeout(() => {
+          setText("");
+        }, timing * 1000);
+
+        return;
+      }
+
       if (!blockProjectThemeChange) {
         tempRef.current = gsap.to(textRef.current, { y: -contRef.current.clientHeight, duration: timing });
         tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: 0, delay: timing });
@@ -66,6 +76,8 @@ const AboutProjects = ({ theme, projectsTheme }: Props) => {
       case "Tap Flash":
         animateText(3);
         break;
+      case "none":
+        animateText(-1);
       default:
     }
 

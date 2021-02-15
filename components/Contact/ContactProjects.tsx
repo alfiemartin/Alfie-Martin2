@@ -26,7 +26,9 @@ const ContactProjects = ({ theme, projectsTheme }: Props) => {
     setBlockProjectThemeChange(true);
     if (theme === "projects") {
       tempRef.current = gsap.to(textRef.current, { y: 0, duration: timing });
-    } else tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: timing });
+    } else {
+      tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: timing });
+    }
 
     let timer = setTimeout(() => {
       setBlockProjectThemeChange(false);
@@ -39,6 +41,16 @@ const ContactProjects = ({ theme, projectsTheme }: Props) => {
     let timer: NodeJS.Timeout;
     const timing = 0.4;
     const changeText = (index: number) => {
+      if (index === -1) {
+        tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: timing });
+
+        timer = setTimeout(() => {
+          setText("");
+        }, timing * 1000);
+
+        return;
+      }
+
       if (!blockProjectThemeChange) {
         tempRef.current = gsap.to(textRef.current, { y: -contRef.current.clientHeight, duration: timing });
         tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight, duration: 0, delay: timing });
@@ -66,6 +78,8 @@ const ContactProjects = ({ theme, projectsTheme }: Props) => {
       case "Tap Flash":
         changeText(3);
         break;
+      case "none":
+        changeText(-1);
       default:
     }
 

@@ -95,7 +95,7 @@ const ProjectsProjects = ({ theme, setProjectsTheme, setTheme }: Props) => {
   }, [hoveredProject]);
 
   useEffect(() => {
-    styleProjects(getIndexFromProject(pressedProject), { background: "rgba(0, 0, 0, 0.0)" }, { background: "purple" });
+    styleProjects(getIndexFromProject(pressedProject), { z: 0 }, { z: 30 });
   }, [pressedProject]);
 
   useEffect(() => {

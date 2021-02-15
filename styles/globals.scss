@@ -34,6 +34,7 @@
       border: 1px solid white;
       color: white;
       position: relative;
+      transform-origin: center;
 
       .overlay {
         position: absolute;
@@ -187,6 +188,7 @@
         font-size: 2rem;
         text-align: center;
         font-weight: bold;
+        transform-origin: center;
       }
     }
   }

@@ -45,6 +45,8 @@
   border: 1px solid white;
   color: white;
   position: relative;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 .master-grid-section > .grid > .grid-item .overlay {
@@ -220,6 +222,8 @@
   font-size: 2rem;
   text-align: center;
   font-weight: bold;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 .SECRET-NORMAL input {
