@@ -10,8 +10,11 @@ const ProjectsNormal = ({ theme }: ThemeProps) => {
   let tempRef = useRef<GSAPTween>(null);
 
   useEffect(() => {
-    if (theme !== "projects") tempRef.current = gsap.to(contRef.current, { y: 0 });
-    else tempRef.current = gsap.to(contRef.current, { y: contRef.current.clientHeight });
+    if (theme === "projects" || theme === "contact") {
+      tempRef.current = gsap.to(contRef.current, { y: contRef.current.clientHeight });
+    } else {
+      tempRef.current = gsap.to(contRef.current, { y: 0 });
+    }
   }, [theme]);
 
   return (

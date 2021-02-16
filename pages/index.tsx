@@ -39,7 +39,7 @@ export default class Home extends React.Component<{}, State> {
           <div className="master-grid-section">
             <div className="grid">
               <div className="grid-item alfie" onMouseEnter={() => this.handleMouseOverSection("alfie")}>
-                <Alfie theme={this.state.theme} projectsTheme={this.state.projectsTheme} />
+                <Alfie theme={this.state.theme} projectsTheme={this.state.projectsTheme} setTheme={this.setTheme} />
                 <div className="overlay"></div>
               </div>
               <div className="grid-item clock" onMouseEnter={() => this.handleMouseOverSection("clock")}>
@@ -51,13 +51,13 @@ export default class Home extends React.Component<{}, State> {
                 <div className="overlay"></div>
               </div>
               <div className="grid-item contact" onMouseEnter={() => this.handleMouseOverSection("contact")}>
-                <Contact theme={this.state.theme} projectsTheme={this.state.projectsTheme} />
+                <Contact theme={this.state.theme} projectsTheme={this.state.projectsTheme} setTheme={this.setTheme} />
                 <div className="overlay"></div>
               </div>
-              <div className="grid-item secret" onMouseEnter={() => this.handleMouseOverSection("secret")}>
+              {/* <div className="grid-item secret" onMouseEnter={() => this.handleMouseOverSection("secret")}>
                 <Secret theme={this.state.theme} projectsTheme={this.state.projectsTheme} />
                 <div className="overlay"></div>
-              </div>
+              </div> */}
               <div className="grid-item about" onMouseEnter={() => this.handleMouseOverSection("about")}>
                 <About theme={this.state.theme} projectsTheme={this.state.projectsTheme} /> testing: {this.state.theme}{" "}
                 + {this.state.projectsTheme}

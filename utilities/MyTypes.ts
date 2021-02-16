@@ -14,7 +14,6 @@ export type ThemeType =
     | "clock"
     | "contact"
     | "projects"
-    | "secret"
     | "about";
 
 export type ProjectThemeType =  

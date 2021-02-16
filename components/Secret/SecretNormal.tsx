@@ -9,20 +9,20 @@ interface Props {
 
 const SecretNormal = ({ theme, projectsTheme }: Props) => {
   let contRef = useRef<HTMLDivElement>(null);
-  let inputRef = useRef<HTMLInputElement>(null);
+  let inputRef = useRef<HTMLHeadingElement>(null);
   let tempRef = useRef<GSAPTween>(null);
 
   useEffect(() => {
     if (theme === "projects") {
-      tempRef.current = gsap.to(inputRef.current, { y: contRef.current.clientHeight });
+      tempRef.current = gsap.to(contRef.current, { y: contRef.current.clientHeight });
     } else {
-      tempRef.current = gsap.to(inputRef.current, { y: 0 });
+      tempRef.current = gsap.to(contRef.current, { y: 0 });
     }
   }, [theme]);
 
   return (
     <div ref={contRef} className="NORMAL SECRET-NORMAL">
-      <input ref={inputRef} type="text" />
+      <h1 ref={inputRef}></h1>
     </div>
   );
 };

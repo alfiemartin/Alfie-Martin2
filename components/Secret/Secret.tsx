@@ -11,8 +11,8 @@ interface Props {
 const Secret = ({ theme, projectsTheme }: Props) => {
   return (
     <div className="SECRET TOP-COMP">
-      <SecretNormal theme={theme} projectsTheme={projectsTheme} />
       <SecretProjects theme={theme} projectsTheme={projectsTheme} />
+      <SecretNormal theme={theme} projectsTheme={projectsTheme} />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   box-sizing: border-box;
@@ -57,6 +58,7 @@
 
       &.contact {
         grid-column: span 2 / span 2;
+        grid-row: span 2 / span 2;
       }
 
       &.secret {
@@ -202,6 +204,60 @@
   }
 }
 
+.PROJECTS-ALFIE {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  img {
+    height: 100%;
+    z-index: 10;
+  }
+}
+
+.PROJECTS-CONTACT {
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+      border-bottom: 2px solid rgb(170, 170, 170);
+    }
+
+    div {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: space-between;
+
+        h2 {
+          display: inline;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          background: gray;
+          padding: 1rem;
+          border-radius: 1rem;
+        }
+      }
+    }
+  }
+}
+
 //\Projects---------------------------------------------------------
 //Alfie-------------------------------------------------------------
 .ALFIE {
@@ -233,6 +289,16 @@
     position: absolute;
   }
 }
+
+.CONTACT-ALFIE {
+  p {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
 //\Contact------------------------------------------
 //Secret---------------------------------------------------
 .SECRET {
@@ -242,6 +308,10 @@
 
   .NORMAL {
     position: absolute;
+    h1 {
+      text-align: center;
+      font-size: 4rem;
+    }
   }
 
   .SECRET-PROJECTS {
@@ -281,3 +351,14 @@
   }
 }
 //\About---------------------------------------------------
+
+//-------------------DESKTOP-----------------------------------
+.DESKTOP {
+  width: 100%;
+  height: 100%;
+
+  h1 {
+    font-family: "Roboto", sans-serif;
+  }
+}
+//\-------------------DESKTOP-----------------------------------

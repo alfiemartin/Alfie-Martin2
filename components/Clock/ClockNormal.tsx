@@ -44,7 +44,9 @@ const ClockNormal = ({ theme, projectsTheme }: Props) => {
         <div
           className="hour-hand clock-lines"
           style={{
-            transform: `translateX(${-2}px) rotateZ(${(time.hours / 12) * 360 + 180}deg) translateY(${0}px)`,
+            transform: `translateX(${-2}px) rotateZ(${
+              ((time.hours + time.minutes / 60) / 12) * 360 + 180
+            }deg) translateY(${0}px)`,
           }}
         ></div>
         <div

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -70,6 +71,7 @@
 
 .master-grid-section > .grid > .grid-item.contact {
   grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
 }
 
 .master-grid-section > .grid > .grid-item.secret {
@@ -232,6 +234,86 @@
   font-size: 5rem;
 }
 
+.PROJECTS-ALFIE {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.PROJECTS-ALFIE img {
+  height: 100%;
+  z-index: 10;
+}
+
+.PROJECTS-CONTACT {
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+}
+
+.PROJECTS-CONTACT .wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.PROJECTS-CONTACT .wrapper h1 {
+  font-size: 4rem;
+  text-align: center;
+  border-bottom: 2px solid #aaaaaa;
+}
+
+.PROJECTS-CONTACT .wrapper div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.PROJECTS-CONTACT .wrapper div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.PROJECTS-CONTACT .wrapper div div h2 {
+  display: inline;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background: gray;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
 .ALFIE {
   position: relative;
   overflow: hidden;
@@ -263,6 +345,13 @@
   position: absolute;
 }
 
+.CONTACT-ALFIE p {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
 .SECRET {
   position: relative;
   overflow: hidden;
@@ -272,6 +361,11 @@
 
 .SECRET .NORMAL {
   position: absolute;
+}
+
+.SECRET .NORMAL h1 {
+  text-align: center;
+  font-size: 4rem;
 }
 
 .SECRET .SECRET-PROJECTS {
@@ -313,5 +407,14 @@
 .ABOUT .ABOUT-PROJECTS h1 {
   font-size: 1.5rem;
   padding: 1rem;
+}
+
+.DESKTOP {
+  width: 100%;
+  height: 100%;
+}
+
+.DESKTOP h1 {
+  font-family: "Roboto", sans-serif;
 }
 /*# sourceMappingURL=globals.css.map */
