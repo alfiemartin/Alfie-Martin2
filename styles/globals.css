@@ -10,6 +10,14 @@
 
 .HOME {
   background: #1f2937;
+  position: relative;
+}
+
+.HOME .mouse-out-sec {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #1f2937;
 }
 
 .master-grid-section {
@@ -249,69 +257,11 @@
 .PROJECTS-CONTACT {
   position: absolute;
   top: 0;
-  pointer-events: none;
 }
 
 .PROJECTS-CONTACT .wrapper {
   width: 100%;
   height: 100%;
-  padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.PROJECTS-CONTACT .wrapper h1 {
-  font-size: 4rem;
-  text-align: center;
-  border-bottom: 2px solid #aaaaaa;
-}
-
-.PROJECTS-CONTACT .wrapper div {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.PROJECTS-CONTACT .wrapper div div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
-}
-
-.PROJECTS-CONTACT .wrapper div div h2 {
-  display: inline;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  background: gray;
-  padding: 1rem;
-  border-radius: 1rem;
 }
 
 .ALFIE {
@@ -350,6 +300,80 @@
   height: 100%;
   padding: 1rem;
   font-size: 1.5rem;
+}
+
+.CONTACT-CONTACT {
+  position: absolute;
+  top: 0;
+}
+
+.CONTACT-CONTACT .wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.CONTACT-CONTACT .wrapper h1 {
+  font-size: 4rem;
+  text-align: center;
+  border-bottom: 2px solid #aaaaaa;
+}
+
+.CONTACT-CONTACT .wrapper div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.CONTACT-CONTACT .wrapper div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.CONTACT-CONTACT .wrapper div div h2 {
+  display: inline;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background: gray;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.CONTACT-CONTACT .wrapper button {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .SECRET {
@@ -404,9 +428,47 @@
   position: absolute;
 }
 
-.ABOUT .ABOUT-PROJECTS h1 {
+.ABOUT .ABOUT-PROJECTS .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ABOUT .ABOUT-PROJECTS .wrapper h1 {
   font-size: 1.5rem;
   padding: 1rem;
+  width: 50%;
+}
+
+.ABOUT .ABOUT-PROJECTS .wrapper div {
+  width: 25%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ABOUT .ABOUT-PROJECTS .wrapper div button {
+  padding: 1rem;
+  width: 80%;
+  height: 80%;
+  font-size: 1.5rem;
 }
 
 .DESKTOP {

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { ThemeType } from "../../utilities/MyTypes";
 import gsap from "gsap";
+import MailChimp from "react-mailchimp-form";
 
 interface Props {
   theme: ThemeType;
@@ -21,11 +22,36 @@ const ProjectsContact = ({ theme }: Props) => {
   return (
     <div className="NORMAL PROJECTS-CONTACT">
       <div className="wrapper" ref={wrapperRef}>
-        <h1>Get In Touch</h1>
-        <div>
-          <h2>phone: +447528559068</h2>
-          <h2>email: alfie@neurify.co.uk</h2>
-        </div>
+        <MailChimp
+          action="https://gmail.us7.list-manage.com/subscribe/post?u=b1c036d6b741d86d40ac0386f&amp;id=e72ab7f84d"
+          fields={[
+            {
+              name: "EMAIL",
+              placeholder: "Email",
+              type: "email",
+              required: true,
+            },
+            {
+              name: "NAME",
+              placeholder: "Name",
+              type: "name",
+              required: true,
+            },
+            {
+              name: "MESSAGE",
+              placeholder: "Message",
+              type: "message",
+              required: true,
+            },
+          ]}
+          messages={{
+            success: "Sent!",
+            error: "An unexpected internal error has occurred.",
+            empty: "You must complete the form",
+            button: "Contact Me!",
+          }}
+          className="mailchimp-form"
+        />
       </div>
     </div>
   );

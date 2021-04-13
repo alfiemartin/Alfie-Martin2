@@ -14,15 +14,9 @@ const ContactNormal = ({ theme, projectsTheme }: Props) => {
   let formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (theme === "projects" || theme === "alfie") {
+    if (theme === "projects" || theme === "alfie" || theme === "contact") {
       tempRef.current = gsap.to(textRef.current, { y: contRef.current.clientHeight });
     } else tempRef.current = gsap.to(textRef.current, { y: 0 });
-
-    if (theme === "contact") {
-      tempRef.current = gsap.to(formRef.current, { y: 0 });
-    } else {
-      tempRef.current = gsap.to(formRef.current, { y: contRef.current.clientHeight });
-    }
   }, [theme]);
   return (
     <div ref={contRef} className="NORMAL">

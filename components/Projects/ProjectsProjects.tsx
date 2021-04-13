@@ -101,11 +101,11 @@ const ProjectsProjects = ({ theme, setProjectsTheme, setTheme }: Props) => {
   useEffect(() => {
     if (theme === "projects") {
       gridItemsRef.current.forEach((item, index) => {
-        tempRef.current = gsap.to(item, { ...themeIsProjectsTweens[index], opacity: 1 });
+        tempRef.current = gsap.to(item, { ...themeIsProjectsTweens[index], opacity: 1, pointerEvents: "all" });
       });
     } else {
       gridItemsRef.current.forEach((item, index) => {
-        tempRef.current = gsap.to(item, { ...themeIsNormalTweens[index], opacity: 0 });
+        tempRef.current = gsap.to(item, { ...themeIsNormalTweens[index], opacity: 0, pointerEvents: "none" });
       });
     }
   }, [theme]);
