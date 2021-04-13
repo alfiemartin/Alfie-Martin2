@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ProjectThemeType, ThemeType } from "../../utilities/MyTypes";
-import { SSL_OP_ALL } from "constants";
 
 const themeIsProjectsTweens: Array<gsap.TweenVars> = [
   { rotateX: "0deg" },
@@ -17,6 +16,21 @@ const themeIsNormalTweens: Array<gsap.TweenVars> = [
   { rotateX: "180deg" },
 ];
 
+const getIndexFromProject = (project: ProjectThemeType) => {
+  switch (project) {
+    case "neurify":
+      return 0;
+    case "Nice and Chill":
+      return 1;
+    case "RDM Technology":
+      return 2;
+    case "Tap Flash":
+      return 3;
+    default:
+      return -1;
+  }
+};
+
 interface Props {
   theme: ThemeType;
   setProjectsTheme: (theme: ProjectThemeType) => void;
@@ -29,17 +43,15 @@ const ProjectsProjects = ({ theme, setProjectsTheme, setTheme }: Props) => {
   let gridItemsRef = useRef<Array<HTMLDivElement>>(Array(4).fill(null));
   let tempRef = useRef<GSAPTween>(null);
 
-  const [pressedProject, setPressedProject] = useState<ProjectThemeType>(
-    "none"
-  );
-  const [hoveredProject, setHoveredProject] = useState<ProjectThemeType>(
-    "none"
-  );
+  const [pressedProject, setPressedProject] = useState<ProjectThemeType>("none");
+  const [hoveredProject, setHoveredProject] = useState<ProjectThemeType>("none");
 
+  // !handlers
   const handleMouseLeave = () => {
     if (pressedProject === "none") {
       setProjectsTheme("none");
       setTheme("normal");
+      setHoveredProject("none");
     } else {
       setProjectsTheme(pressedProject);
       setTheme("projects");
@@ -56,23 +68,51 @@ const ProjectsProjects = ({ theme, setProjectsTheme, setTheme }: Props) => {
   const handleProjectClick = (justPressedProject: ProjectThemeType) => {
     const prevPressedProject = pressedProject;
 
-    console.log({ justPressedProject, pressedProject });
-
     if (justPressedProject === prevPressedProject) setPressedProject("none");
-    else setPressedProject(justPressedProject);
+    else {
+      setPressedProject(justPressedProject);
+      setProjectsTheme(hoveredProject);
+    }
+  };
+
+  //!styling
+  const styleProjects = (projectIndex: number, startTween: gsap.TweenVars, endTween: gsap.TweenVars) => {
+    if (projectIndex === -1) {
+      gridItemsRef.current.forEach((item) => {
+        tempRef.current = gsap.to(item, startTween);
+      });
+      return;
+    }
+
+    gridItemsRef.current.forEach((item) => {
+      tempRef.current = gsap.to(item, startTween);
+    });
+    tempRef.current = gsap.to(gridItemsRef.current[projectIndex], endTween);
   };
 
   useEffect(() => {
-    setProjectsTheme(hoveredProject);
+    styleProjects(getIndexFromProject(hoveredProject), { color: "white" }, { color: "red" });
+  }, [hoveredProject]);
+
+  useEffect(() => {
+    styleProjects(getIndexFromProject(pressedProject), { z: 0 }, { z: 30 });
   }, [pressedProject]);
+
+  useEffect(() => {
+    if (theme === "projects") {
+      gridItemsRef.current.forEach((item, index) => {
+        tempRef.current = gsap.to(item, { ...themeIsProjectsTweens[index], opacity: 1, pointerEvents: "all" });
+      });
+    } else {
+      gridItemsRef.current.forEach((item, index) => {
+        tempRef.current = gsap.to(item, { ...themeIsNormalTweens[index], opacity: 0, pointerEvents: "none" });
+      });
+    }
+  }, [theme]);
 
   return (
     <div className="PROJECTS-PROJECTS" ref={contRef}>
-      <div
-        className="grid"
-        ref={gridRef}
-        onMouseLeave={() => handleMouseLeave()}
-      >
+      <div className="grid" ref={gridRef} onMouseLeave={() => handleMouseLeave()}>
         <div
           className="grid-item"
           ref={(el) => (gridItemsRef.current[0] = el)}

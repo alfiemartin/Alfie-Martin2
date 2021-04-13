@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -8,6 +9,14 @@
 }
 
 .HOME {
+  background: #1f2937;
+  position: relative;
+}
+
+.HOME .mouse-out-sec {
+  width: 100%;
+  height: 100%;
+  position: absolute;
   background: #1f2937;
 }
 
@@ -36,6 +45,7 @@
       grid-template-rows: repeat(4, 1fr);
   gap: 1.5rem;
   padding: 1.5rem;
+  position: relative;
 }
 
 .master-grid-section > .grid > .grid-item {
@@ -44,6 +54,8 @@
   border: 1px solid white;
   color: white;
   position: relative;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 .master-grid-section > .grid > .grid-item .overlay {
@@ -67,6 +79,7 @@
 
 .master-grid-section > .grid > .grid-item.contact {
   grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
 }
 
 .master-grid-section > .grid > .grid-item.secret {
@@ -80,6 +93,7 @@
 .TOP-COMP {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .TOP-COMP .NORMAL {
@@ -100,11 +114,26 @@
   font-size: 5rem;
 }
 
-.clock-cont {
+.CLOCK {
+  position: relative;
+  overflow: hidden;
+}
+
+.CLOCK .CLOCK-PROJECTS {
+  position: absolute;
+}
+
+.CLOCK .CLOCK-PROJECTS img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+}
+
+.CLOCK-CONT {
   width: 20vh;
   height: 20vh;
   padding: 0.7rem;
-  position: relative;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,7 +144,7 @@
   overflow: hidden;
 }
 
-.clock-cont .circle-clock {
+.CLOCK-CONT .circle-clock {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -124,7 +153,7 @@
   background: #480562;
 }
 
-.clock-cont .circle-clock .clock-lines {
+.CLOCK-CONT .circle-clock .clock-lines {
   width: 4px;
   height: 50px;
   position: absolute;
@@ -136,26 +165,26 @@
   border-radius: 50%;
 }
 
-.clock-cont .circle-clock .clock-lines.hour-dashes {
+.CLOCK-CONT .circle-clock .clock-lines.hour-dashes {
   height: 20px;
   width: 2px;
   border-radius: 0;
 }
 
-.clock-cont .circle-clock .clock-lines.hour-hand {
+.CLOCK-CONT .circle-clock .clock-lines.hour-hand {
   height: 30%;
   width: 4px;
   background: red;
 }
 
-.clock-cont .circle-clock .clock-lines.minute-hand {
+.CLOCK-CONT .circle-clock .clock-lines.minute-hand {
   height: 46%;
   width: 4px;
   border-radius: 40%;
   background: green;
 }
 
-.clock-cont .circle-clock .clock-lines.second-hand {
+.CLOCK-CONT .circle-clock .clock-lines.second-hand {
   height: 35%;
   width: 3px;
   background: #2b9fa3;
@@ -163,6 +192,7 @@
 
 .PROJECTS {
   position: relative;
+  overflow: hidden;
 }
 
 .PROJECTS .PROJECTS-PROJECTS {
@@ -171,7 +201,6 @@
   top: 0;
   left: 0;
   position: absolute;
-  overflow: hidden;
   -webkit-perspective: 800px;
           perspective: 800px;
 }
@@ -203,11 +232,251 @@
   font-size: 2rem;
   text-align: center;
   font-weight: bold;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 .SECRET-NORMAL input {
   width: 80%;
   height: 40%;
   font-size: 5rem;
+}
+
+.PROJECTS-ALFIE {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.PROJECTS-ALFIE img {
+  height: 100%;
+  z-index: 10;
+}
+
+.PROJECTS-CONTACT {
+  position: absolute;
+  top: 0;
+}
+
+.PROJECTS-CONTACT .wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.ALFIE {
+  position: relative;
+  overflow: hidden;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+}
+
+.ALFIE .NORMAL {
+  position: absolute;
+}
+
+.CONTACT {
+  position: relative;
+  overflow: hidden;
+}
+
+.CONTACT .CONTACT-PROJECTS {
+  position: absolute;
+}
+
+.CONTACT .CONTACT-PROJECTS h1 {
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.CONTACT .NORMAL {
+  position: absolute;
+}
+
+.CONTACT-ALFIE p {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.CONTACT-CONTACT {
+  position: absolute;
+  top: 0;
+}
+
+.CONTACT-CONTACT .wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.CONTACT-CONTACT .wrapper h1 {
+  font-size: 4rem;
+  text-align: center;
+  border-bottom: 2px solid #aaaaaa;
+}
+
+.CONTACT-CONTACT .wrapper div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.CONTACT-CONTACT .wrapper div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.CONTACT-CONTACT .wrapper div div h2 {
+  display: inline;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background: gray;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.CONTACT-CONTACT .wrapper button {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.SECRET {
+  position: relative;
+  overflow: hidden;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+}
+
+.SECRET .NORMAL {
+  position: absolute;
+}
+
+.SECRET .NORMAL h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.SECRET .SECRET-PROJECTS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.SECRET .SECRET-PROJECTS div {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.SECRET .SECRET-PROJECTS div button {
+  padding: 1rem;
+  width: 80%;
+  height: 80%;
+  font-size: 1.5rem;
+}
+
+.ABOUT {
+  position: relative;
+  overflow: hidden;
+}
+
+.ABOUT .NORMAL {
+  position: absolute;
+}
+
+.ABOUT .ABOUT-PROJECTS .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ABOUT .ABOUT-PROJECTS .wrapper h1 {
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 50%;
+}
+
+.ABOUT .ABOUT-PROJECTS .wrapper div {
+  width: 25%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ABOUT .ABOUT-PROJECTS .wrapper div button {
+  padding: 1rem;
+  width: 80%;
+  height: 80%;
+  font-size: 1.5rem;
+}
+
+.DESKTOP {
+  width: 100%;
+  height: 100%;
+}
+
+.DESKTOP h1 {
+  font-family: "Roboto", sans-serif;
 }
 /*# sourceMappingURL=globals.css.map */

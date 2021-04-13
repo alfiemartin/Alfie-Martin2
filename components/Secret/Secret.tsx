@@ -1,10 +1,18 @@
 import React from "react";
+import { ThemeType, ProjectThemeType } from "../../utilities/MyTypes";
 import SecretNormal from "./SecretNormal";
+import SecretProjects from "./SecretProjects";
 
-const Secret = () => {
+interface Props {
+  theme: ThemeType;
+  projectsTheme: ProjectThemeType;
+}
+
+const Secret = ({ theme, projectsTheme }: Props) => {
   return (
     <div className="SECRET TOP-COMP">
-      <SecretNormal />
+      <SecretProjects theme={theme} projectsTheme={projectsTheme} />
+      <SecretNormal theme={theme} projectsTheme={projectsTheme} />
     </div>
   );
 };

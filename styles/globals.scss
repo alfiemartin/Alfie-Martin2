@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   box-sizing: border-box;
@@ -9,6 +10,14 @@
 
 .HOME {
   background: #1f2937;
+  position: relative;
+
+  .mouse-out-sec {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #1f2937;
+  }
 }
 
 .master-grid-section {
@@ -26,6 +35,7 @@
     grid-template-rows: repeat(4, 1fr);
     gap: 1.5rem;
     padding: 1.5rem;
+    position: relative;
 
     & > .grid-item {
       width: 100%;
@@ -33,6 +43,7 @@
       border: 1px solid white;
       color: white;
       position: relative;
+      transform-origin: center;
 
       .overlay {
         position: absolute;
@@ -55,6 +66,7 @@
 
       &.contact {
         grid-column: span 2 / span 2;
+        grid-row: span 2 / span 2;
       }
 
       &.secret {
@@ -71,6 +83,7 @@
 .TOP-COMP {
   width: 100%;
   height: 100%;
+  position: relative;
 
   .NORMAL {
     width: 100%;
@@ -85,11 +98,25 @@
 }
 
 //Clock---------------------------------------------------------
-.clock-cont {
+.CLOCK {
+  position: relative;
+  overflow: hidden;
+
+  .CLOCK-PROJECTS {
+    position: absolute;
+
+    img {
+      object-fit: fill;
+      width: 100%;
+    }
+  }
+}
+
+.CLOCK-CONT {
   width: 20vh;
   height: 20vh;
   padding: 0.7rem;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-items: center;
   align-items: center;
@@ -144,6 +171,7 @@
 //Projects---------------------------------------------------------
 .PROJECTS {
   position: relative;
+  overflow: hidden;
 
   .PROJECTS-PROJECTS {
     width: 100%;
@@ -151,7 +179,6 @@
     top: 0;
     left: 0;
     position: absolute;
-    overflow: hidden;
     perspective: 800px;
 
     & > .grid {
@@ -171,6 +198,7 @@
         font-size: 2rem;
         text-align: center;
         font-weight: bold;
+        transform-origin: center;
       }
     }
   }
@@ -184,4 +212,199 @@
   }
 }
 
+.PROJECTS-ALFIE {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  img {
+    height: 100%;
+    z-index: 10;
+  }
+}
+
+.PROJECTS-CONTACT {
+  position: absolute;
+  top: 0;
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 //\Projects---------------------------------------------------------
+//Alfie-------------------------------------------------------------
+.ALFIE {
+  position: relative;
+  overflow: hidden;
+  perspective: 800px;
+  .NORMAL {
+    position: absolute;
+  }
+}
+//\Alfie------------------------------------------------------------
+//Contact---------------------------------------------------------
+.CONTACT {
+  position: relative;
+  overflow: hidden;
+
+  .CONTACT-PROJECTS {
+    position: absolute;
+
+    h1 {
+      width: 100%;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+    }
+  }
+
+  .NORMAL {
+    position: absolute;
+  }
+}
+
+.CONTACT-ALFIE {
+  p {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.CONTACT-CONTACT {
+  position: absolute;
+  top: 0;
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+      border-bottom: 2px solid rgb(170, 170, 170);
+    }
+
+    div {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: space-between;
+
+        h2 {
+          display: inline;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          background: gray;
+          padding: 1rem;
+          border-radius: 1rem;
+        }
+      }
+    }
+
+    button {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  }
+}
+
+//\Contact------------------------------------------
+//Secret---------------------------------------------------
+.SECRET {
+  position: relative;
+  overflow: hidden;
+  perspective: 800px;
+
+  .NORMAL {
+    position: absolute;
+    h1 {
+      text-align: center;
+      font-size: 4rem;
+    }
+  }
+
+  .SECRET-PROJECTS {
+    display: flex;
+
+    div {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        padding: 1rem;
+        width: 80%;
+        height: 80%;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+//\Secret--------------------------------------------------
+//About----------------------------------------------------
+.ABOUT {
+  position: relative;
+  overflow: hidden;
+
+  .NORMAL {
+    position: absolute;
+  }
+
+  .ABOUT-PROJECTS {
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-size: 1.5rem;
+        padding: 1rem;
+        width: 50%;
+      }
+
+      div {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+          padding: 1rem;
+          width: 80%;
+          height: 80%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+//\About---------------------------------------------------
+
+//-------------------DESKTOP-----------------------------------
+.DESKTOP {
+  width: 100%;
+  height: 100%;
+
+  h1 {
+    font-family: "Roboto", sans-serif;
+  }
+}
+//\-------------------DESKTOP-----------------------------------

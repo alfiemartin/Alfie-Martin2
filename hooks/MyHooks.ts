@@ -3,12 +3,13 @@ import { debounce } from "../utilities/MyFunctions";
 import { ContRefType, TimeType } from "../utilities/MyTypes";
 
 export const useClockTime = () => {
-  const [time, setTime] = useState<TimeType>({ hours: 0, minutes: 0, seconds: 0 });
+  const newDate = new Date();
+
+  const [time, setTime] = useState<TimeType>({ hours: newDate.getHours(), minutes: newDate.getMinutes(), seconds: newDate.getSeconds() });
   const [clockTicker, setClockTicker] = useState<boolean>(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      const newDate = new Date();
+    const timer = setTimeout(() => {
       setTime({
         hours: newDate.getHours(),
         minutes: newDate.getMinutes(),
@@ -16,10 +17,8 @@ export const useClockTime = () => {
       });
       setClockTicker(!clockTicker);
     }, 10);
-  }, [clockTicker]);
 
-  useEffect(() => {
-    
+    return () => clearTimeout(timer);
   }, [clockTicker]);
 
   return time
@@ -36,7 +35,7 @@ export const useElementsHeight = (elementsRef: ContRefType) => {
     windowSizeChanged();
     window.addEventListener("resize", debounce(windowSizeChanged, 250));
     return () => window.removeEventListener("resize", debounce(windowSizeChanged, 250));
-  }, []);
+  });
 
 
   return height;
